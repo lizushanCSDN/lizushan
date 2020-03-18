@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var putin = confirm("想吃饭吗") ;
+        if (putin == true) {
+            var str = prompt("今晚几个人吃饭鸭");
+            str = parseInt(str);
+            var Maxname = new Array(str);
+            for (i = 0; i < str; i++) {
+                var a = i + 1;
+                var name = prompt("第" + a + "个人叫什么鸭");
+                Maxname[i] = name;
+            }
+            for (j = 0; j < str; j++) {
+                var num = Math.random() * 10;
+                num = parseInt(num);
+                switch (num) {
+                    case 0: var eat = "今晚就不吃了"; break;
+                    case 1: var eat = "今晚吃锅包肉"; break;
+                    case 2: var eat = "今晚吃肉夹馍"; break;
+                    case 3: var eat = "今晚吃麻辣烫"; break;
+                    case 4: var eat = "今晚吃烤红薯"; break;
+                    case 5: var eat = "今晚吃烤乳猪"; break;
+                    case 6: var eat = "今晚吃烤全羊"; break;
+                    case 7: var eat = "今晚吃烤玉米"; break;
+                    case 8: var eat = "今晚麻辣烧烤"; break;
+                    case 9: var eat = "今晚吃大米粥"; break;
+                    case 10: var eat = "今晚满汉全席"; break;
+                        defult: console.log("这恐怕哪里有问题");
+                }
+                // console.log(Maxname[j]+eat);
+                document.write(Maxname[j] + eat + "*");
+            }
+        }else{
+            document.write("那就睡觉去吧");
+        }
+    </script>
+</body>
+
+</html>
