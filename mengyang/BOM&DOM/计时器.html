@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: #666;
+            margin: 200px auto;
+            text-align: center;
+            padding-top: 100px;
+            box-sizing: border-box;
+        }
+        .bto{
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 id="b-box">100</h1>
+        <button class="bto" id="b-bto">开始</button>
+    </div>
+
+    <script>
+        var str = document.getElementById("b-box");
+        var str1 = document.getElementById("b-bto");
+        var timer = null;
+        var isGo = true;
+
+        str1.onclick= function(){
+            str1.innerText = isGo?'暂停':'开始';
+            if(isGo){
+                timer = setInterval(function(){
+                    --str.innerText;
+                },1000)
+            }else{
+                clearInterval(timer);
+            }
+            isGo = !isGo;
+        }
+    </script>
+</body>
+</html>

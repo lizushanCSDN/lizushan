@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foo = function (a) {
+            if (a % 3 == 0 && a % 5 == 0 && a % 7 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var num = 0;
+        for (i = 1; i <= 1000; i++) {
+            if (foo(i)) {
+                num++;
+                if (num % 6 == 0) {
+                    document.write("<br/>");
+                }
+                document.write(i + "&nbsp");
+            }
+        }
+    </script>
+</body>
+
+</html>

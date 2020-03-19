@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var age = prompt("输入年龄");
+        var y_age = parseInt(age);
+        if (y_age < 14) {
+            document.write("你仅仅是个儿童");
+        } else if (14 <= y_age && y_age < 24) {
+            document.write("你还是个青少年");
+        } else if (24 <= y_age && y_age < 40) {
+            document.write("你是个青年");
+        } else if (40 <= y_age && y_age < 60) {
+            document.write("你已步入中年");
+        } else if (y_age >= 60) {
+            document.write("当你老了，头发白了");
+        }
+    </script>
+</body>
+
+</html>

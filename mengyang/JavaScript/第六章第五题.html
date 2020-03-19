@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// var foo = function (s1,s2) {
+		// 	var str = s1.split("");
+		// 	var str1 = s2.split("");
+		// 	var str2 = [];
+		// 	var Max = s1.length>s2.length?s1.length:s2.length;
+		// 	for (i = 0; i <= Max; i++) {
+		// 		str2.push(str[i]);
+		// 		str2.push(str1[i]);
+		// 	}
+		// 	return str2.join("");
+		// }
+		// console.log(foo("123456","abc"));
+
+		var foo = function(s1,s2){
+			var str = s1.split("");
+			var str2 = s2.split("");
+			var Min = str.length<str2.length?str.length:str2.length;
+			var Max = str.length>str2.length?str:str2;
+			var str3 = [];
+			var str4 = [];
+			for(i = 0; i < Min; i++){
+				str3.push(str[i]);
+				str3.push(str2[i]);
+			}
+			str4 = Max.slice(Min);
+			str3 = str3.concat(str4);
+			return str3.join("");
+		}
+		console.log(foo("123456","abcdefghi"));
+	</script>
+</body>
+
+</html>

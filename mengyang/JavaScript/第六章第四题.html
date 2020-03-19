@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		var foo  = function(s){
+			var str = s.split("");
+			var str1 = "";
+			for(i = 0; i< str.length; i++){
+			if(str[i] >="0" && str[i] <="9"){
+				str1 += str[i];
+			}
+		}
+		return str1;
+		}
+		console.log(foo("1a2b3c"));
+	</script>
+</body>
+
+</html>

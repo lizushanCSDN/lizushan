@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// 非递归：
+				var foo = function (n) {
+				// 1 1 2 3 5 8 13 21 34 55 89 144 233
+				if (n < 3) {
+					return 1;
+				} else {
+					var a = 1;
+					var b = 1;
+					var temp = 1;
+					for (i = 3; i <=n; i++) {
+
+						temp = b;
+						b = a + b;
+						a = temp;
+					}
+					return b;
+				}
+			}
+
+               console.log(foo(5));
+			   
+			   
+				// 递归：
+				function Fibonacci(n){
+				if(n<3){
+					return 1;
+				}else{
+					return Fibonacci(n-1) + Fibonacci(n-2);
+				}
+			}
+			console.log(Fibonacci(6));
+	</script>
+</body>
+
+</html>

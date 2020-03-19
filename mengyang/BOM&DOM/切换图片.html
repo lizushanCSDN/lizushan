@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .box{
+            width: 800px;
+            margin: 100px auto;
+            border: 1px solid #666;
+        }
+        .Big-img{
+           border-bottom: 1px solid #666;
+            text-align: center;
+            margin: 20px auto 10px;
+        }
+        .Big-img img{
+            height: 140px;
+        }
+        .Small-img li{
+            width: 25%;
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            border-right: 1px solid #666;
+        }
+        .Small-img li img{
+            width: 100px;
+        }
+        .Small-img li:last-child{
+            border-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="Big-img"><img id="bimg" src="../你，和我/0.jpg"></div>
+        <div class="Small-img">
+            <ul class="clearfix">
+                <li><img src="../你，和我/0.jpg" class="l1"></li>
+                <li><img src="../你，和我/1 (1).jpg" class="l2"></li>
+                <li><img src="../你，和我/1 (2).jpg" class="l3"></li>
+                <li><img src="../你，和我/1 (3).jpg" class="l4"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var S_img = document.getElementsByClassName("Small-img")[0].getElementsByTagName("img");
+        var B_img = document.getElementById("bimg");
+        for(i = 0; i< S_img.length; i++){
+            S_img[i].onmouseover = function(){
+                var thisAttr = this.getAttribute("src");
+                B_img.setAttribute("src",thisAttr);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

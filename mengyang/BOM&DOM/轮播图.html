@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            background-color: black;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 800px;
+            height: 400px;
+            margin: 200px auto 0;
+            border: 3px solid #666;
+            text-align: center;
+            position: relative;
+        }
+
+        .img img {
+            height: 400px;
+        }
+
+        .img li {
+            display: none;
+        }
+
+        .img .active {
+            display: block;
+        }
+
+        .nav {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .nav .nav-right {
+            width: 150px;
+            height: 20px;
+            float: right;
+        }
+
+        .nav-right span {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #ff6700;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .nav-right .active {
+            background-color: red;
+        }
+
+        .nav .nav-left {
+            width: 50px;
+            float: left;
+        }
+
+        .nav-left span {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff6700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="img">
+            <ul>
+                <li class="active"><img src="../你，和我/1 (11).jpg"></li>
+                <li><img src="../你，和我/1 (12).jpg"></li>
+                <li><img src="../你，和我/1 (13).jpg"></li>
+                <li><img src="../你，和我/1 (14).jpg"></li>
+                <li><img src="../你，和我/1 (15).jpg"></li>
+            </ul>
+        </div>
+
+        <div class="nav">
+            <div class="nav-right">
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
+
+            <div class="nav-left">
+                <span>&lt;</span>
+                <span>&gt;</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var num = document.getElementsByClassName("nav-right")[0].getElementsByTagName("span");
+        var img = document.getElementsByClassName("img")[0].getElementsByTagName("li");
+        var arr = document.getElementsByClassName("nav-left")[0].getElementsByTagName("span");
+        var Bbox = document.getElementsByClassName("box")[0];
+        var nowIndex = 0;
+        var timer = null;
+        for (i = 0; i < num.length; i++) {
+            num[i].index = i;
+            num[i].onmouseover = function () {
+                for (j = 0; j < num.length; j++) {
+                    num[j].className = "";
+                    img[j].className = "";
+                }
+                this.className = "active";
+                img[this.index].className = "active";
+                nowIndex = this.index;
+            }
+        }
+        
+        arr[1].onclick = function(){
+            nowIndex = nowIndex == 5?0:nowIndex;
+            num[nowIndex%5].className = "";
+            num[(nowIndex+1) % 5].className = "active";
+
+            img[nowIndex%5].className = "";
+            img[(nowIndex+1) % 5].className = "active";
+            nowIndex++;
+        }
+        arr[0].onclick = function(){
+            nowIndex = nowIndex == 0?5:nowIndex;
+            num[nowIndex%5].className = "";
+            num[(nowIndex - 1) % 5].className = "active";
+
+            img[nowIndex%5].className = "";
+            img[(nowIndex-1) % 5].className = "active";
+            nowIndex--;
+        }
+
+        function play(){
+            timer = setInterval(function(){
+                arr[1].onclick();
+            },1000)
+        }
+
+        Bbox.onmouseout = function(){
+            play();
+        }
+        Bbox.onmouseover = function(){
+            clearInterval(timer);
+        }
+
+    </script>
+</body>
+
+</html>

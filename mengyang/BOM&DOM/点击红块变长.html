@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    div{
+        width: 300px;
+        height: 100px;
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var Dbox = document.getElementById("box");
+        var timer = null;
+        Dbox.onmouseover = function(){
+            clearInterval(timer);
+            var _this = this;
+            timer = setInterval(function(){
+                var nowWidth = _this.offsetWidth;
+                if(nowWidth == 500){
+                    clearInterval(timer);
+                }else{
+                    _this.style.width = nowWidth + 10 + "px";
+                }
+            },16)
+        }
+        Dbox.onmouseout = function(){
+            clearInterval(timer);
+            var _this = this;
+            timer = setInterval(function(){
+                var nowWidth = _this.offsetWidth;
+                if(nowWidth == 300){
+                    clearInterval(timer);
+                }else{
+                    _this.style.width = nowWidth - 10 + "px";
+                }
+            },16)
+        }   
+    </script>
+</body>
+</html>

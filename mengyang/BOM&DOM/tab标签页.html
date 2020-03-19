@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .box {
+            width: 600px;
+            border: 1px solid black;
+            margin: 50px auto 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box .top {
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+
+        .top li {
+            float: left;
+            height: 50px;
+            width: 100px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .top .active{
+            background-color: #666;
+        }
+
+        .area .text {
+            display: none;
+        }
+
+        .area .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <ul class="clearfix">
+                <li class="header active">第一节课</li>
+                <li class="header">第二节课</li>
+                <li class="header">第三节课</li>
+            </ul>
+        </div>
+
+        <div class="area">
+            <div class="text active">
+                <p>第一节课内容</p>
+            </div>
+            <div class="text">
+                <p>第二节课内容</p>
+            </div>
+            <div class="text">
+                <p>第三节课内容</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var y_area = document.getElementsByClassName("header");
+        var y_text = document.getElementsByClassName("text");
+        for (var i = 0; i < y_area.length; i++) {
+            y_area[i].index = i;
+            y_area[i].onmouseover = function () {
+                for (j = 0; j < y_text.length; j++) {
+                    y_area[j].classList.remove("active");
+                    y_text[j].classList.remove("active");
+                }
+                this.classList.add("active");
+                y_text[this.index].classList.add("active");
+            }
+        }
+    </script>
+</body>
+
+</html>

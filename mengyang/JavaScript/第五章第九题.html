@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		num = 0;
+		Max = 0;
+		var foo = function(){
+		var a = Math.floor(Math.random()*9)+1;
+		var b = Math.floor(Math.random()*9)+1;
+		var c = Math.floor(Math.random()*9)+1;
+		if(a == 8 || b == 8 || c ==8){
+			return true;
+		}else{
+			return false;
+		}
+		}
+		while(true){
+			var y_n = confirm("是否继续？？");
+			if(y_n){
+			Max++;
+			if(foo()){
+				num ++;
+				console.log("你赢了！！");
+			}else{
+				console.log("你输了");
+			}
+			}else{
+				break;
+			}
+
+			console.log(num/Max);
+		}
+	</script>
+</body>
+
+</html>
