@@ -13,31 +13,31 @@
             position: relative;
         }
     
-        /* .img2 {
-            width: 200px;
-            height: 200px;
+        .img2 {
+            width: 400px;
+            height: 400px;
             overflow: hidden;
             float: left;
             margin-left: 20px;
             position: relative;
-        } */
+        }
     
         .img1 img {
             height: 100%;
             width: 100%;
         }
     
-        /* 
+        
         .img2 .big-img {
-            height: 400px;
-            width: 400px;
+            height: 800px;
+            width: 800px;
             position: absolute;
     
-        } */
+        }
     
         .change {
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             background-color: #fff;
             opacity: 0.5;
             position: absolute;
@@ -47,26 +47,61 @@
     </style>
 </head>
 <body>
+
     <div class="img1">
         <img src="../html/img/niu.png">
         <div class="change"></div>
     </div>
-    <!-- <div class="img2">
+    <div class="img2">
         <img src="../html/img/niu.png" class="big-img">
-    </div> -->
+    </div>
 
     <script>
         var oSmall = document.getElementsByClassName("img1")[0];
         var oChange = document.getElementsByClassName("change")[0];
-        // var oBig = document.getElementsByClassName("big-img")[0];
+        var oBig = document.getElementsByClassName("big-img")[0];
 
-        oSmall.onmouseover = function(e){
-            var thisTop = e.clientY;
-            var thisLeft = e.clientX;
+        oSmall.onmousemove = function(e){
+            var thisTop = e.clientY - 100;
+            var thisLeft = e.clientX - 100;
+            if(thisTop >= 0 && thisTop <= 200){
+                thisTop = thisTop;
+            }else{
+                thisTop = thisTop<= 0? 0:200;
+            }
+            if(thisLeft >= 0 && thisLeft <=200){
+                thisLeft = thisLeft;
+            }
+            else{
+                thisLeft = thisLeft <= 0? 0:200;
+            }
 
-            oChange.style.top = thisTop - 100 + "px";
-            oChange.style.left = thisLeft - 100 + "px";
+            oChange.style.top = thisTop + "px";
+            oChange.style.left = thisLeft + "px";
+            oBig.style.left = -2*oChange.offsetLeft + "px";
+            oBig.style.top = -2*oChange.offsetTop + "px";
+            console.log(oChange.offsetTop);
+
         }
+
+        //或者
+        //   oSmall.onmousemove = function(e){
+        //     var thisTop = e.clientY;
+        //     var thisLeft = e.clientX;
+
+        //     if(thisTop >=100 && thisTop <=300){
+        //         thisTop = thisTop;
+        //     }else{
+        //         thisTop = thisTop <= 100?100 : 300;
+        //     }
+        //     if(thisLeft >= 100&& thisLeft <=300){
+        //         thisLeft = thisLeft;
+        //     }else{
+        //         thisLeft = thisLeft<=100 ?100 :300;
+        //     }
+        //     oChange.style.top = thisTop - 100 + "px";
+        //     oChange.style.left = thisLeft - 100 + "px";
+        // }
     </script>
 </body>
 
