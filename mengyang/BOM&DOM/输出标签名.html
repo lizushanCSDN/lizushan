@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><span>你好</span></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        function foo(nodes) {
+            if (nodes.nodeType == 1) {
+                console.log(nodes.nodeName);
+            }
+            for (var i = 0; i < nodes.childNodes.length; i++) {
+                if (nodes.childNodes[i].nodeType == 1) {
+                    foo(nodes.childNodes[i])
+                }
+            }
+        }
+        var oul = document.getElementsByTagName("ul")[0];
+        foo(oul);
+
+    //     function foo(nodes){
+    //     if(nodes.nodeType == 1){
+    //     console.log(nodes.nodeName);
+    //   }
+    //   for(i = 0;i<nodes.childNodes.length;i++){
+    //     if(nodes.childNodes[i].nodeType == 1){
+    //       foo(nodes.childNodes[i])
+    //     }
+    //   }
+    // }
+    // var oul = document.getElementsByTagName("ul")[0];
+    //     foo(oul);
+    </script>
+</body>
+
+</html>
