@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            border: 1px solid yellow;
+            margin: 150px auto;
+        }
+        .radius{
+            width: 400px;
+            height: 400px;
+            border: 1px solid green;
+            border-radius: 50%;
+            position: relative;
+        }
+      .degree li{
+          list-style: none;
+            height: 6px;
+            width: 2px;
+            background-color: black;
+            top: 0;
+            left: 50%;
+            position: absolute;  
+            transform-origin: 1px 200px;
+        }
+        li:nth-last-child(5n){
+            height: 20px;
+        }
+        .hour,.minutes,.second{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-100%);
+            transform-origin: center bottom;
+        }
+        .hour{
+            height: 30px;
+            width: 4px;
+            border: 2px solid red;
+            background-color: red;
+            /* transform: translate(201px,141px);
+            position: absolute; */
+        }
+        .minutes{
+            height: 60px;
+            width: 2px;
+            border: 2px solid blue;
+            background-color: blue;
+            /* transform: translate(201px,121px);
+            position: absolute; */
+        }
+        .second{
+            height: 80px;
+            width: 1px;
+            border: 2px solid pink;
+            background-color:pink;
+        }
+        .point{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="radius">
+            <ul class="degree">
+
+            </ul>
+            <div class="point"></div>
+            <div class="hour"></div>
+            <div class="minutes"></div>
+            <div class="second"></div>
+        </div>
+    </div>
+    <script> 
+        var degree = document.getElementsByClassName("degree")[0];
+        var second = document.getElementsByClassName("second")[0];
+        var minutes = document.getElementsByClassName("minutes")[0];
+        var hour = document.getElementsByClassName("hour")[0];
+        var ali = "";
+        for(var i = 0;i < 60; i++){
+            ali += "<li style = 'transform:rotate("+i*6+"deg)'></li>"
+        }
+        degree.innerHTML = ali;
+
+        setInterval(function(){
+            var timer = new Date();
+            var nowhour = timer.getHours();
+            var nowminutes = timer.getMinutes();
+            var nowsecond = timer.getSeconds();
+
+            second.style.transform = "translate(-50%,-100%) rotate("+nowsecond*6+"deg)";
+            minutes.style.transform = "translate(-50%,-100%) rotate("+nowminutes*6+"deg)";
+            hour.style.transfrom = "translate(-50%,-100%) rotate("+nowhour*6+"deg)";
+        },1000)
+    </script>
+</body>
+</html>

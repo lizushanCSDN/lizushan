@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 100px;
+            height: 300px;
+            border: 1px solid yellow;
+            float: left;
+            margin-left: 100px;
+        }
+
+        select {
+            width: 100%;
+            height: 100%;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <select class="sel" name="left" id="sel1" multiple>
+            <option value="">选项1</option>
+            <option value="">选项2</option>
+            <option value="">选项3</option>
+            <option value="">选项4</option>
+            <option value="">选项5</option>
+            <option value="">选项6</option>
+            <option value="">选项7</option>
+        </select>
+        <button class="btn sel-option" data-dir="left">移动选定项</button>
+        <button class="btn all-option" data-dir="left">移动全部项</button>
+    </div>
+
+    <div class="content">
+        <select class="sel" name="right" id="sel2" multiple>
+            <option value="">选项8</option>
+        </select>
+        <button class="btn sel-option" data-dir="right">移动选定项</button>
+        <button class="btn all-option" data-dir="right">移动全部项</button>
+    </div>
+    <script>
+        var asel = document.getElementsByClassName("sel");
+        var seloption = document.getElementsByClassName("sel-option");
+        var alloption = document.getElementsByClassName("all-option");
+
+            //双击移动
+        for(var i = 0; i<asel.length; i++){
+            asel[i].ondblclick = function(){
+                var thissel = this.name == "left"?asel[0]:asel[1];
+                var siblingsel = this.name == "left"?asel[1]:asel[0];
+                siblingsel.appendChild(thissel.children[this.selectedIndex]);
+            }
+        }
+
+        for(var i = 0;  i < seloption.length;i++){
+            seloption[i].onclick = function(){
+                var thissel = this.dataset.dir == "left"?asel[0]:asel[1];
+                var siblingsel = this.dataset.dir == "right"?asel[0]:asel[1];
+
+                var selectedoption = [];
+                for(var j = 0; j < thissel.options.length; j++){
+                    if(thissel.options[j].selected){
+                        selectedoption.push(thissel.options[j])
+                    }
+                }
+                for(var k = 0; k < selectedoption.length; k++){
+                    siblingsel.appendChild(selectedoption[k]);
+                }
+            }
+        }
+
+        for(var i = 0; i < alloption.length; i++){
+            alloption[i].onclick = function(){
+                var thissel = this.dataset.dir == "left" ? asel[0]:asel[1];
+                var siblingsel = this.dataset.dir == "left" ? asel[1]:asel[0];
+
+                siblingsel.innerHTML += thissel.innerHTML;
+                thissel.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <html>
+<head>
+<script type="text/javascript">
+function getIndex()
+  {
+  var x=document.getElementById("mySelect")
+  alert(x.selectedIndex)
+  }
+</script>
+</head>
+<body>
+
+<form>
+Select your favorite fruit:
+<select id="mySelect">
+  <option>Apple</option>
+  <option>Orange</option>
+  <option>Pineapple</option>
+  <option>Banana</option>
+</select>
+<br /><br />
+<input type="button" onclick="getIndex()"
+value="Alert index of selected option">
+</form>
+
+</body>
+</html> -->

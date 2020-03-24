@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .push {
+            width: 100px;
+            height: 100px;
+            background-color: #e7e7e7;
+            border-radius: 10%;
+            display: flex;
+            margin-top: 100px;
+            margin-left: 100px;
+            float: left;
+            box-shadow: inset 0 5px white, inset 0 -5px #bbb, inset 5px 0 #d7d7d7, inset -5px 0 #d7d7d7;
+        }
+
+        .push span {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #333;
+            display: block;
+            margin: 4px;
+            box-shadow: inset 0 3px #111, inset 0 -3px #555;
+        }
+
+        /* 第一面 */
+        .one {
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 第二面 */
+        .two {
+            justify-content: space-between;
+        }
+
+        .two span:last-child {
+            align-self: flex-end;
+        }
+
+        /* 第三面 */
+        .three {
+            justify-content: space-between;
+        }
+
+        .three span:nth-child(2) {
+            align-self: center;
+        }
+
+        .three span:last-child {
+            align-self: flex-end;
+        }
+
+        /* 第四面 */
+        .four {
+            justify-content: space-between;
+        }
+
+        /* .four .clum{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        } */
+
+        /* 第五面 */
+        .five {
+            justify-content: space-between;
+        }
+
+        /* .five .clum{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        } */
+        .five .center {
+            align-self: center;
+        }
+
+        /* 第六面 */
+        .six {
+            justify-content: space-between;
+        }
+
+        /* .six .clum{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        } */
+        .clum {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="push one">
+        <span></span>
+    </div>
+
+    <div class="push two">
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="push three">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="push four">
+        <div class="clum">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="clum">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="push five">
+        <div class="clum">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="center">
+            <span></span>
+        </div>
+        <div class="clum">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="push six">
+        <div class="clum">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="clum">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+
+</html>

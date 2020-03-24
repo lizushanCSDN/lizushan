@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+            perspective: 1000px;
+        }
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid gray;
+            transform-style: preserve-3d;
+            animation: foo 3s linear infinite;
+        }
+        @keyframes foo {
+            from{
+                transform: rotateY(0);
+            }
+            to{
+                transform: rotateY(360deg);
+            }
+        }
+        .box div {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            opacity: 50%;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+        }
+        .three{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .four{
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+        .five{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .six{
+            transform:rotateY(90deg) translateZ(-100px);
+        }
+        .two{
+            transform: translateZ(100px);
+        }
+        .one{
+            transform: translateZ(-100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="one">
+            <h1>1</h1>
+        </div>
+        <div class="two">
+            <h1>2</h1>
+        </div>
+        <div class="three">
+            <h1>3</h1>
+        </div>
+        <div class="four">
+            <h1>4</h1>
+        </div>
+        <div class="five">
+            <h1>5</h1>
+        </div>
+        <div class="six">
+            <h1>6</h1>
+        </div>
+    </div>
+</body>
+
+</html>
