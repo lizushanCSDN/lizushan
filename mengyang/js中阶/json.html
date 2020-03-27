@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var box = {
+            border:"solid",
+            color:"black",
+            margin:"auto"
+        }
+        let jsonStr = JSON.stringify(box);
+        console.log(jsonStr);
+        let jsonStr1 = JSON.parse(jsonStr);
+        console.log(jsonStr1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var username = "xiaoming";
+        var obj = {
+            username:"xiaowang"
+        }
+        function foo(a,b){
+            console.log(a,b,this.username);
+        }
+        Function.prototype.bind2 = function(){
+            var newobj = arguments[0];
+            var thisarg = Array.prototype.slice.call(arguments,1);
+            var _this = this;
+            return function(){
+                _this.apply(newobj,thisarg);
+            }
+        }
+        var foo3 = foo.bind2(obj,"hello","world");
+        var foo2 = foo.bind(obj,"hello","heida");
+        foo3();
+        foo2();
+
+
+
+        // var username = "xiaoming";
+        // var person = {
+        //     username:"xiaowang"
+        // }
+        // function foo(a,b){
+        //     console.log(a,b,username);
+        // }
+        // var foo2 = foo.bind(person,"hello","world");
+        // foo2();
+    </script>
+</body>
+</html>
