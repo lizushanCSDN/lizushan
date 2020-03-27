@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin-left: 100px;
+            margin-top: 100px;
+            width: 300px;
+            height: 50px;
+            display: flex;
+        }
+
+        .box div {
+            flex-grow: 1;
+            background-color: #666;
+            /* float: left; */
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+        .box .active{
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="active" data-name="first">first</div>
+        <div data-name="second">second</div>
+        <div data-name="third">third</div>
+    </div>
+    <script>
+        // var num = document.getElementsByClassName("box")[0].getElementsByTagName("div");
+
+        // for(var i = 0; i < num.length; i++){
+        //     num[i].onclick = function(){
+        //         for(var j = 0; j < num.length; j++){
+        //             num[j].className = "";
+        //         }
+        //         this.className = "active";
+        //     }
+        // }
+
+        var num = document.getElementsByClassName("box")[0].getElementsByTagName("div");
+        var hashObj = {};
+        var box = document.getElementsByClassName("box")[0];
+
+        for(var i = 0; i < num.length; i++){
+            
+            num[i].onclick = function(){
+                var arr = [];
+                for(var j = 0; j < num.length; j++){
+                    num[j].classList.remove("active");
+                }
+                this.className = "active";
+                location.hash = this.dataset.name;
+            }
+        }
+        window.onhashchange = function(){
+            var thishash = location.hash.substr(1)
+            for(var i = 0;i < num.length; i++){
+                if(num[i].dataset.name == thishash){
+                    num[i].classList.add("active");
+                }else{
+                    num[i].classList.remove("active");
+                }
+            }
+        }
+
+
+
+
+            // var box = document.getElementsByClassName("box")[0];
+            // box.innerHTML += box.innerHTML;
+            // console.log(box.innerHTML);
+    </script>
+</body>
+
+</html>

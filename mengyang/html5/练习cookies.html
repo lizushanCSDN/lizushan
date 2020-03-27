@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var timer = new Date();
+        // timer.setDate(timer.getDate() + 1);
+        // var timerStr = timer.toUTCString();
+        // document.cookie = "username = xiaowang;expires="+timerStr;
+        setcookies = function(name,val,count){
+            var timer = new Date();
+            timer.setDate(timer.getDate() + count);
+            var nowtimer = timer.toUTCString();
+            document.cookie = name+"="+val+";expires="+nowtimer;
+        }
+        setcookies("username","xiaozhang",1);
+    </script>
+</body>
+</html>
