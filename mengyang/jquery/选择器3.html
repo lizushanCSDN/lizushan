@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        li {
+            border: 1px solid black;
+        }
+
+        [name*=text] {
+            color: pink;
+        }
+        .active{
+            color:yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="a">3</li>        第一个ul
+        <li>4</li>
+        <li></li>
+        <li>6 <span>hello</span></li>
+    </ul> -->
+
+
+
+    <!-- <ul>
+        <li name="text-one" class="texta textb textc">1</li>
+        <li name="text-two">2</li>
+        <li name="text-three">3</li>
+        <li name="a-text">4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul> -->
+
+
+
+    <div id="box" class="box">hello</div>
+    <input type="checkbox" id="chec">
+    <button id="btn">change</button>
+
+    <script>
+        // $("li:eq(1)").css({color:"red"});
+        // $("li:even").css({color:"yellow"});
+        // $("li:gt(3)").css({color:"blue"});   //选择前四个后面的元素
+        // $("li:not(.a)").css({color:"yellow"});
+        // $("li:contains(h)").css({color:"pink"});
+        // $("li:has(span)").css({borderColor:"red"});          //第一个ul的处理
+        // $("li:empty").css({borderColor:"blue"});
+        // $("li:parent").css({borderColor:"pink"});
+
+
+        // $("[name*=text]").css({ borderColor: "yellow" });
+        // $("[class~=textb]").css({ borderColor: "red" });
+
+
+        // $("#box").attr("class","active");
+        // $("#chec").attr("name","xiaogou");
+        // console.log($("#box").attr("class"));
+        // console.log($("#chec").attr("name"));
+
+
+        // $(":checkbox").prop("checked","true");
+        // console.log($(":checkbox").prop("checked"));
+
+
+        $(".box").attr("class","box active");
+        console.log($(".box").hasClass("active"));
+        // $(".box").toggleClass("box");
+        $("#btn").click(function(){
+            $(".box").toggleClass("active");
+        })
+    </script>
+</body>
+
+</html>

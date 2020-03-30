@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        .box {
+            border: 1px solid black;
+        }
+
+        div {
+            border: 2px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2
+            <div>2-1</div>
+        </div>
+        <div class="a">3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <div class="box2">hello world</div>
+    <script>
+        $(".box").css({ borderColor: "red" });
+        $(".box > div").css({ borderColor: "blue" });
+        $(".a ~ div").css({ borderColor: "yellow" });
+        $(".a + div").css({borderColor:"green"});
+    </script>
+</body>
+
+</html>
