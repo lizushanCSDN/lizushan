@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            background-color: black;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+
+        .box {
+            /* 266.95 */
+            width: 260px;
+            height: 400px;
+            margin: 200px auto 0;
+            border: 3px solid #666;
+            text-align: center;
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        .img img {
+            width: 260px;
+            height: 400px;
+        }
+
+        .box .img {
+            /* 1601.7 */
+            width: 1300px;
+        }
+
+        .box .img ul {
+            position: absolute;
+            width: 1300px;
+        }
+
+        .img li {
+            float: left;
+        }
+
+        .img .active {
+            display: block;
+        }
+
+        .nav {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .nav .nav-right {
+            width: 150px;
+            height: 20px;
+            float: right;
+        }
+
+        .nav-right span {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #ff6700;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .nav-right .active {
+            background-color: red;
+        }
+
+        .nav .nav-left {
+            width: 50px;
+            float: left;
+        }
+
+        .nav-left span {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff6700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="img">
+            <ul id="oul">
+                <li class="active"><img src="../你，和我/1 (11).jpg"></li>
+                <li><img src="../你，和我/1 (20).jpg"></li>
+                <li><img src="../你，和我/1 (13).jpg"></li>
+                <li><img src="../你，和我/1 (14).jpg"></li>
+                <li><img src="../你，和我/1 (15).jpg"></li>
+            </ul>
+        </div>
+
+        <div class="nav">
+            <div class="nav-right">
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
+
+            <div class="nav-left">
+                <span>&lt;</span>
+                <span>&gt;</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var oBbox = document.getElementsByClassName("box")[0];
+        var imglist = document.getElementsByClassName("img")[0].getElementsByTagName("li");
+        var oul = document.getElementById("oul");
+        var navlist = document.getElementsByClassName("nav-right")[0].getElementsByTagName("span");
+        var arrnav = document.getElementsByClassName("nav-left")[0].getElementsByTagName("span");
+        var timer = null;
+        var nowIndex = 0;
+        var isGoOn = true;
+        var playtimer = 0;
+
+        function changeImg(n) {
+            var nowleft = 0;
+            var dir = -1;
+
+            if (!isGoOn) {
+                return false;
+            }
+
+            for (var j = 0; j < navlist.length; j++) {
+                navlist[j].className = "";
+            }
+            navlist[n].className = "active";
+
+            if (nowIndex > n) {
+                dir = 1;
+            } else {
+                dir = -1;
+            }
+
+            timer = setInterval(function () {
+                isGoOn = false;
+                nowleft = oul.offsetLeft;
+                if (n * -260 == nowleft) {
+                    clearInterval(timer);
+                    nowIndex = n;
+                    isGoOn = true;
+                } else {
+                    oul.style.left = nowleft + (10 * dir) + "px";
+                }
+            }, 10)
+        }
+
+        for (var i = 0; i < navlist.length; i++) {
+            navlist[i].index = i;
+            navlist[i].onclick = function () {
+                changeImg(this.index);
+            }
+        }
+
+        arrnav[0].onclick = function(){
+            if(nowIndex - 1 == -1){
+                changeImg(4);
+            }else{
+                changeImg(nowIndex - 1);
+            }
+        }
+
+        arrnav[1].onclick = function(){
+            if(nowIndex + 1 == 5){
+                changeImg(0);
+            }else{
+                changeImg(nowIndex + 1);
+            }
+        }
+
+        function play(){
+            playtimer = setInterval(function(){
+                arrnav[1].onclick();
+            },1000)
+        }
+        play();
+
+        oBbox.onmouseover = function(){
+            clearInterval(playtimer);
+        }
+        oBbox.onmouseout = function(){
+            play();
+        }
+    </script>
+</body>
+
+</html>
