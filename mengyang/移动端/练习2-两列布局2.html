@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .box{
+            display: flex;
+        }
+        .left{
+            flex-basis: 200px;
+            height: 160px;
+            background-color: yellow;
+            float: left;
+        }
+        .right{
+            /* 如果元素不是弹性盒对象的元素，则 flex-grow 属性不起作用。 */
+            flex-grow: 1;  
+            height: 160px;
+            background-color: #852;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
