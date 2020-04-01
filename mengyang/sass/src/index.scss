@@ -1,0 +1,108 @@
+/*! main */
+@import "./main.scss";
+$color:#ff6700;
+.box{
+  /*box style*/
+  color: $color;
+  &-header{
+    font-size: 30px;
+  }
+  &:hover{
+    color: black;
+  }
+  .div1{
+    font-size: 20px;
+    .child1{
+      font-weight: bold;
+    }
+  }
+}
+.box2{
+  // border:1px solid $color;
+  border: {
+    left:{
+      color:$color;
+      width:1px;
+      style:"solid";
+    }
+  }
+
+}
+@mixin foo ($h:300px,$w:300px,$c:red){
+  width: $w;
+  height: $h;
+  background-color: $c;
+}
+.box3{
+  @include foo(300px,300px,yellow); 
+}
+.box4{
+  @include foo($c:blue);
+  font-size: 30px;
+}
+.box5{
+  width: 200px;
+  height: 20px;
+  background-color: red;
+}
+.box6{
+  @extend .box5;
+  font-size: 30px;
+}
+$w1:800px;
+$h1:200px;
+.box7{
+  // width: 6rem+7;
+  height: 13px-5px;
+  font-size: 2*3px;
+  // border-width: (6px/2);
+  // border-width: abs(3-10px);
+  width: percentage($h1/$w1);
+  
+}
+$img:'xxx.jpg';
+.box8{
+
+  background-image: url("./img/" + $img);
+}
+$str1:"hello world!";
+.box8::after{
+  // content: to-upper-case($str1);
+  content:str-index($str1,"w");
+  width: str-length($str1);
+}
+$color2:rgba(255,0,0,.5);
+.box9{
+  color: lighten($color2,40%);
+  // color: darken($color2, 20%);
+  // color: opacify($color2,0.3);
+  // color: transparentize($color2,0.3);
+}
+$list: 1px solid black;
+$list2: 1px solid;
+$list3: green;
+.box10{
+  // border:$list;
+  // border:append($list2, red);
+  border:join($list2,$list3);
+  // font-weight: length($list);
+  flex-grow: index($list,solid);
+  color: nth($list,3)
+}
+$map:(color11:red,color12:blue,color13:yellow);
+.box11{
+  color: map-get($map, color12);
+  z-index: map-keys($map);
+  z-index: map-values($map);
+  z-index: map-has-key($map,color11);
+
+
+}
+$text:"hello";
+$text2:".box12";
+$text3:"color";
+/* this text : #{$text}*/
+#{$text2}{
+  // color: $color
+  #{$text3}:$color
+}
