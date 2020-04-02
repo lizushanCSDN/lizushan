@@ -1,71 +1,57 @@
 /*! main */
-* {
-  margin: 0; }
+* { margin: 0; }
 
-.box {
-  /*box style*/
-  color: #ff6700; }
-  .box-header {
-    font-size: 30px; }
-  .box:hover {
-    color: black; }
-  .box .div1 {
-    font-size: 20px; }
-    .box .div1 .child1 {
-      font-weight: bold; }
+.box { /*box style*/ color: #ff6700; }
+.box-header { font-size: 30px; }
+.box:hover { color: black; }
+.box .div1 { font-size: 20px; }
+.box .div1 .child1 { font-weight: bold; }
 
-.box2 {
-  border-left-color: #ff6700;
-  border-left-width: 1px;
-  border-left-style: "solid"; }
+.box2 { border-left-color: #ff6700; border-left-width: 1px; border-left-style: "solid"; }
 
-.box3 {
-  width: 300px;
-  height: 300px;
-  background-color: yellow; }
+.box3 { width: 300px; height: 300px; background-color: yellow; }
 
-.box4 {
-  width: 300px;
-  height: 300px;
-  background-color: blue;
-  font-size: 30px; }
+.box4 { width: 300px; height: 300px; background-color: blue; font-size: 30px; }
 
-.box5, .box6 {
-  width: 200px;
-  height: 20px;
-  background-color: red; }
+.box5, .box6 { width: 200px; height: 20px; background-color: red; }
 
-.box6 {
-  font-size: 30px; }
+.box6 { font-size: 30px; }
 
-.box7 {
-  height: 8px;
-  font-size: 6px;
-  width: 25%; }
+.box7 { height: 8px; font-size: 6px; width: 25%; }
 
-.box8 {
-  background-image: url("./img/xxx.jpg"); }
+.box8 { background-image: url("./img/xxx.jpg"); }
 
-.box8::after {
-  content: 7;
-  width: 12; }
+.box8::after { content: 7; width: 12; }
 
-.box9 {
-  color: rgba(255, 204, 204, 0.5); }
+.box9 { color: rgba(255, 204, 204, 0.5); }
 
-.box10 {
-  border: 1px solid green;
-  flex-grow: 2;
-  color: black; }
+.box10 { border: 1px solid green; flex-grow: 2; color: black; }
 
-.box11 {
-  color: blue;
-  z-index: color11, color12, color13;
-  z-index: red, blue, yellow;
-  z-index: true; }
+.box11 { color: blue; z-index: color11, color12, color13; z-index: red, blue, yellow; z-index: true; }
 
 /* this text : hello*/
-.box12 {
-  color: #ff6700; }
+.box12 { color: #ff6700; }
+
+.div-3 { color: #ff6700; }
+
+.div-4 { background-color: #fff; }
+
+.div-5 { background-color: #fff; }
+
+.div-a { height: 1px; }
+
+.div-b { height: 1px; }
+
+.div-c { height: 1px; }
+
+.div-d { height: 1px; }
+
+.div-e { height: 1px; }
+
+.div-1 { width: 1px; }
+
+.div-2 { width: 1px; }
+
+.box13 { color: red; }
 
 /*# sourceMappingURL=index.css.map */

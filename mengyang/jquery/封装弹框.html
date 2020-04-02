@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .all,.all1{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color:rgba(0, 0, 0, 0.3);
+        }
+        .all,.all1{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+        .box,.box1{
+            position: absolute;
+            width: 500px;
+            height: 400px;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -250px;
+        }
+        .box .header, .box1 .header1{
+            height: 100px;
+            background-color: black;
+            color: white;
+            /* text-align: center; */
+            display: flex;
+            line-height: 100px;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+        .header span,.header1 span{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">登录</button>
+    <button class="btn1">注册</button>
+    <div class="all">
+        <div class="box">
+            <div class="header">
+                <span>登录</span>
+                <span class="colse">×</span>
+            </div>
+            <div class="body">登录内容</div>
+        </div>
+    </div>
+
+    <div class="all1">
+        <div class="box1">
+            <div class="header1">
+                <span>注册</span>
+                <span class="colse1">×</span>
+            </div>
+            <div class="body1">注册内容</div>
+        </div>
+    </div>
+    <script>
+        $(".btn").click(function(){
+            // $(".all").addClass("active");
+            $(".all").show();
+        })
+        $(".colse").click(function(){
+            // $(".all").removeClass("active");
+            $(".all").hide();
+        })
+
+        $(".btn1").click(function(){
+            // $(".all").addClass("active");
+            $(".all1").show();
+        })
+        $(".colse1").click(function(){
+            // $(".all").removeClass("active");
+            $(".all1").hide();
+        })
+    </script>
+</body>
+</html>
