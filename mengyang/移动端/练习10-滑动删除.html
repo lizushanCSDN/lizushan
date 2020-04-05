@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/zepto.js"></script>
+    <script src="./js/touch.js"></script>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        div {
+            height: 25px;
+            width: 80px;
+            background-color: orange;
+            margin: 0 200px 20px 0;
+            position: relative;
+        }
+
+        span {
+            height: 25px;
+            width: 50px;
+            background-color: blue;
+            display: none;
+            position: absolute;
+            margin-left: 20px;
+        }
+
+        .active {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">通话记录1<span class="type">删除</span></div>
+    <div class="box">通话记录2<span class="type">删除</span></div>
+    <script>
+        $(".box").swipe(function () {
+            $(this).siblings().children("span").removeClass("active");
+            $(this).children("span").addClass("active");
+        })
+        $(".type").tap(function(){
+            $(this).parent(".box").remove();
+        })
+    </script>
+</body>
+
+</html>
