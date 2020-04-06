@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //方案一 includes 和 新数组
+        let arr = [1, 2, 4, 3, 6, 3, 4, 5, 2, 1, 4, 2, 3, 1];
+        // function unique(arr){
+        //     let newArr = [];
+        //     for(let val of arr){
+        //         if(!newArr.includes(val)){
+        //             newArr.push(val);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+
+        //方案二 利用排序和新数组
+        // function unique(arr){
+        //     let newArr = [];
+        //     arr = arr.sort(function(a,b){
+        //         return a-b;
+        //     })
+        //     newArr[0] = arr[0];
+        //     for(let i = 1; i<arr.length;i++){
+        //         if(arr[i] != arr[i-1]){
+        //             newArr.push(arr[i]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+
+        //方案三 利用对象属性名称不能重复
+        // function unique(arr){
+        //     let newArr = [];
+        //     let obj = {};
+        //     arr.map(function(val,index){
+        //         if(!(val in obj)){
+        //             obj[val] = 1;
+        //             newArr.push(val);
+        //         }else{
+        //             obj[val]++;
+        //         }
+        //     })
+        //     return newArr;
+        // }
+
+        //方案四 利用filter
+        // function unique(arr){
+        //     let newArr = [];
+        //     newArr = arr.filter(function(val,index){
+        //         if(arr.indexOf(val) == index){
+        //             return val;
+        //         }
+        //     })
+        //     return newArr;
+        // }
+        //方案四的第二种
+        // var arr2 = arr.filter(function (x, index, self) {
+        //     return self.indexOf(x) === index;
+        // });
+        // console.log(arr2);
+
+        //方案五 利用set成员的值都是唯一的
+        function unique(arr){
+            let newArr = new Set(arr);//结果输出的是一个对象
+            return Array.from(newArr);//使用Array.from转成数组
+        }
+        console.log(unique(arr));
+    </script>
+</body>
+
+</html>
