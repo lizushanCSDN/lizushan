@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{num}}</h1>
+        <!-- v-on:可以缩写为@ -->
+        <button v-on:click="addhandle(1)">add</button>   
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num:0
+            },
+            methods:{
+                addhandle(i){
+                    console.log(i);
+                    this.num++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

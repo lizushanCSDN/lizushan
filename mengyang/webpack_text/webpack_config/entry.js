@@ -1,4 +1,4 @@
 const entry = {
-  index:"./src/index.js"
+  index:"./src/index.js",
 }
 module.exports = entry;
