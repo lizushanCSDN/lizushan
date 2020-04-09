@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .own{
+            margin-top: 100px;
+        }
+        .father {
+            height: 200px;
+            width: 200px;
+            background-color: rgba(255, 0, 0, 50%);
+            float: left;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .first .f1{
+            background-color: rgba(0, 0, 255, 50%);
+        }
+        .first .f2{
+            background-color: rgba(0, 0, 0, 50%);
+        }
+        .second .f4{
+            background-color: yellow;
+            opacity: 50%;
+        }
+        .second .f5{
+            background-color: green;
+            opacity: 50%;
+        }
+        .box {
+            height: 180px;
+            width: 180px;
+            background-color: gray;
+            margin-top: 10px;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
+        .first{
+            margin-left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        .second{
+            height: 180px;
+            margin-left: 50%;
+            transform: translate(-35%,-90px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="own">
+        <div class="first">
+            <div class="father f1">
+                <div class="box b1"></div>
+            </div>
+            <div class="father f2">
+                <div class="box b2"></div>
+            </div>
+            <div class="father f3">
+                <div class="box b3"></div>
+            </div>
+        </div>
+    
+        <div class="second">
+            <div class="father f4">
+                <div class="box b4"></div>
+            </div>
+            <div class="father f5">
+                <div class="box b5"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
