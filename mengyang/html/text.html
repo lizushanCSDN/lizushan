@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            height: 800px;
+            width: 400px;
+            border: 1px solid black;
+        }
+
+        header,
+        nav {
+            height: 100px;
+            width: 400px;
+            background-color: blue;
+            position: fixed;
+        }
+
+        header span {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        header p {
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+            font-size: 40px;
+        }
+
+        header {
+            top: 0;
+            left: 0;
+        }
+
+        nav {
+            bottom: 0;
+            left: 0;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        li {
+            flex-grow: 1;
+            text-align: center;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <header>
+            <span>首页</span>
+            <p>剧集</p>
+        </header>
+        <nav>
+            <ul>
+                <li>剧集</li>
+                <li>音乐</li>
+                <li>书籍</li>
+                <li>聊天</li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>
