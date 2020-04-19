@@ -1,6 +1,5 @@
 <template>
-  <div>
-    音乐
+  <div v-loading.fullscreen="loading">
     <div v-if="isShow">
       <aplayer :audio="audio" :lrcType="0" />
     </div>
@@ -29,6 +28,7 @@ Vue.use(APlayer,{
 export default {
   data() {
     return {
+      loading:false,
       isShow:false,
       audio:{
         name: '啵唧',
@@ -63,7 +63,8 @@ export default {
     //获取歌曲列表
     getMusicList(){
       let musicList = [];
-      let thisUrl = "https://bird.ioliu.cn/netease/playlist?id=4929945813"
+      let thisUrl = "https://bird.ioliu.cn/netease/playlist?id=4929945813";
+      this.loading = true;
       axios.get(thisUrl).then((res)=>{
         console.log(res);
         musicList = res.data.playlist.tracks.map((item)=>{
@@ -74,6 +75,7 @@ export default {
           }
         })
         this.musicList = musicList;
+        this.loading = false;
         this.isShow = true;
       })
     }

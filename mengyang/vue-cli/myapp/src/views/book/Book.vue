@@ -43,7 +43,7 @@
 export default {
   data() {
     return {
-      loading:false,
+      loading:false, 
       activeName: 'fiction',
       carouselList:[],
       listItems:[],
